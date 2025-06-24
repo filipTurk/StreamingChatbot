@@ -1,0 +1,273 @@
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-image: url('2.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff; 
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 700px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  overflow: hidden;
+
+  background: rgba(25, 25, 30, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+}
+
+.chat-window {
+  flex-grow: 1;
+  padding: 20px;
+  padding-top: 0%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-window::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-window::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.message {
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background: rgba(0, 132, 255, 0.8);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+  background: rgba(50, 50, 55, 0.8);
+  color: #f1f1f1;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.2); 
+  gap: 10px;
+}
+
+.chat-input-form input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none; 
+  transition: border-color 0.3s;
+}
+
+.chat-input-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chat-input-form input:focus {
+  border-color: rgba(0, 132, 255, 0.8);
+}
+
+.chat-input-form button {
+  padding: 0 25px;
+  border: none;
+  background-color: #0078d4;
+  color: white;
+  border-radius: 22px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.chat-input-form button:hover:not(:disabled) {
+    background-color: #108ee9;
+}
+
+.chat-input-form button:disabled {
+  background-color: rgba(80, 80, 80, 0.8);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+.button-container {
+  display: flex;
+  justify-content: start;
+  margin-bottom: 5px;
+  padding: 5px;
+  gap: 5px;
+
+
+}
+
+/*LOADERS*/
+/* Option 1: Pulsing Dot */
+.pulsing-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  margin-left: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Option 2: Three Bouncing Dots */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  gap: 2px;
+}
+
+.typing-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #6b7280;
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Option 3: Subtle Wave Animation */
+.wave-indicator {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  gap: 1px;
+}
+
+.wave-bar {
+  width: 2px;
+  height: 12px;
+  background-color: #3b82f6;
+  border-radius: 1px;
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(1) { animation-delay: 0s; }
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes wave {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.6;
+  }
+  20% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Option 4: Gradient Shimmer */
+.shimmer-indicator {
+  display: inline-block;
+  width: 60px;
+  height: 12px;
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  margin-left: 8px;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Option 5: Rotating Spinner */
+.spinner-indicator {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f4f6;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  margin-left: 8px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Option 6: Subtle Fade In/Out */
+.fade-indicator {
+  display: inline-block;
+  color: #6b7280;
+  margin-left: 8px;
+  font-size: 0.875rem;
+  animation: fade 2s ease-in-out infinite;
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}

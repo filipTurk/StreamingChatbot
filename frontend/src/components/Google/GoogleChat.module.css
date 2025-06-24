@@ -1,0 +1,10 @@
+.message {
+  display: flex; 
+  align-items: center;
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+

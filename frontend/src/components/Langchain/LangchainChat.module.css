@@ -1,0 +1,116 @@
+.chatContainer {
+  width: 100%;
+  max-width: 85vh;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(255, 250, 250, 0.37);
+  overflow: hidden;
+  background: rgba(50, 50, 50, 0.65); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); 
+  border: 1px solid rgba(243, 217, 217, 0.18);
+  position: relative; 
+}
+
+.chatWindow {
+  flex-grow: 1;
+  padding: 20px;
+  padding-top: 0%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.chatWindow::-webkit-scrollbar {
+  width: 6px;
+}
+.chatWindow::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chatWindow::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.message {
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background: rgba(0, 132, 255, 0.8);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+  background: rgba(50, 50, 55, 0.8);
+  color: #f1f1f1;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+    min-height: 40px;
+}
+
+.chatInputForm {
+  display: flex;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.2); 
+  gap: 10px;
+  
+}
+
+.chatInputForm input {
+  flex-grow: 1;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none; 
+  transition: border-color 0.3s;
+  min-width: 0;
+ flex-grow: 1;
+}
+
+.chatInputForm input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.chatInputForm input:focus {
+  border-color: rgba(0, 132, 255, 0.8);
+}
+
+.chatInputForm button {
+  padding: 0 25px;
+  border: none;
+  background-color: #0078d4;
+  color: white;
+  border-radius: 22px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.chatInputForm button:hover:not(:disabled) {
+    background-color: #108ee9;
+}
+
+.chatInputForm button:disabled {
+  background-color: rgba(80, 80, 80, 0.8);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
