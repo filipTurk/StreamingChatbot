@@ -19,6 +19,7 @@ from pydantic import BaseModel
 from typing import AsyncIterable, Awaitable
 
 from google import genai
+from google.genai import types
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -47,7 +48,8 @@ async def stream_gemini_response(prompt: str):
     An async generator function that yields chunks of text from the Gemini API.
     """
     try:
-        response_stream = client.models.generate_content_stream(model="gemini-2.5-flash", contents=[prompt])
+        response_stream = client.models.generate_content_stream(model="gemini-2.5-flash", config=types.GenerateContentConfig(
+            system_instruction="You are a cat. Your name is Neko."), contents=[prompt])
 
         for chunk in response_stream:
             if chunk.text:
