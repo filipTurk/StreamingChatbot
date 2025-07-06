@@ -7,7 +7,7 @@ cd backend:
 pip install -r requirements.txt
 python main.py
 ```
-cd frontend:
+cd frontend2:
 ```bash
 npm install
 npm run dev
